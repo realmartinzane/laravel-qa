@@ -17,29 +17,34 @@
                 <div class="card-body">
                     @include('layouts._messages')
 
-                   @foreach($questions as $q)
+                   @foreach($questions as $question)
                         <div class="media">
                             <div class="d-flex flex-column counters">
                                 <div class="vote">
-                                    <strong>{{ $q->votes }}</strong> {{ str_plural('vote', $q->votes) }}
+                                    <strong>{{ $question->votes }}</strong> {{ str_plural('vote', $question->votes) }}
                                 </div>
-                                <div class="status {{ $q->status }}">
-                                    <strong>{{ $q->answers }}</strong> {{ str_plural('answer', $q->answers) }}
+                                <div class="status {{ $question->status }}">
+                                    <strong>{{ $question->answers }}</strong> {{ str_plural('answer', $question->answers) }}
                                 </div>
                                 <div class="view">
-                                    {{ $q->views . " " . str_plural('view', $q->views) }}
+                                    {{ $question->views . " " . str_plural('view', $question->views) }}
                                 </div>
                             </div>
                             <div class="media-body">
                                 <div class="d-flex align-items-center">
-                                    <h3 class="mt-0"><a href="{{ $q->url}}">{{ $q->title }}</a></h3>
+                                    <h3 class="mt-0"><a href="{{ $question->url}}">{{ $question->title }}</a></h3>
                                     <div class="ml-auto">
-                                        <a href="{{ route('questions.edit', $q->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                        <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                        <form action="{{ route('questions.destroy', $question->id)}}" method="POST" class="form-delete">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure')">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <p class="lead">Asked by <a href="${{ $q->user->url }}">{{ $q->user->name }}</a></p>
-                                <small class="text-muted">{{ $q->created_date }}</small>
-                                {{ str_limit($q->body, 250)}}
+                                <p class="lead">Asked by <a href="${{ $question->user->url }}">{{ $question->user->name }}</a></p>
+                                <small class="text-muted">{{ $question->created_date }}</small>
+                                {{ str_limit($question->body, 250)}}
                             </div>
                         </div>
                         <hr>
