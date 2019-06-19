@@ -24,7 +24,7 @@ class Question extends Model
         return route('questions.show', $this->slug);
     }
 
-    public function getCreateDateAttribute()
+    public function getCreatedDateAttribute()
     {
         return $this->created_at->diffForHumans();
     }

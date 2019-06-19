@@ -14,6 +14,10 @@ class Answer extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
     public function getBodyHtmlAttribute()
     {
         return \Parsedown::instance()->text($this->body);
@@ -26,5 +30,16 @@ class Answer extends Model
             $answer->question->increment('answers_count');
             $answer->question->save();
         });
+    }
+    public function getUrlAttribute()
+    {
+        // return route('questions.show', $this->slug);
+        return '#';
+    }
+    public function getAvatarAttribute()
+    {
+        $email = $this->email;
+        $size = 32;
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . "&s=" . $size;
     }
 }
