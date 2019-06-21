@@ -67,7 +67,7 @@ form.form-delete
         &.off, &.off:hover {color: $gray-400}
         &.favorite
         {
-            &.favorited, &.favorited:hover {color: $warning;}
+            &.favorited, &.favorited:hover {color: #FFC107;}
         }
         &.vote-accepted {color: $green}
     }

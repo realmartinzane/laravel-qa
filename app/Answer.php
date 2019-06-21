@@ -42,12 +42,6 @@ class Answer extends Model
         // return route('questions.show', $this->slug);
         return '#';
     }
-    public function getAvatarAttribute()
-    {
-        $email = $this->email;
-        $size = 32;
-        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . "&s=" . $size;
-    }
     public function getStatusAttribute()
     {
         return $this->isBest() ? 'vote-accepted' : '';
