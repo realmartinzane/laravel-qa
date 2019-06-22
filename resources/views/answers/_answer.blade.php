@@ -22,11 +22,11 @@
             </div>
             <div class="col-4"></div>
             <div class="col-4">
-                @include('common._author', 
-                [
-                    'model' => $answer,
-                    'label' => 'Answered'
-                ])
+                <user-info
+                :model="{{ $answer }}"
+                :label="'Answered'">
+
+                </user-info>
             </div>
         </div>
     </div>
