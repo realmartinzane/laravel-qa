@@ -5,7 +5,7 @@ trait VotableTrait
 {
     public function votes()
     {
-        return $this->morphToMany(User::class, 'votable');
+        return $this->morphToMany(User::class, 'votable')->withTimestamps();;
     }
     public function upVotes()
     {
