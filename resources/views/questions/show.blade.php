@@ -28,10 +28,10 @@
                                 <div class="col-4"></div>
                                 <div class="col-4"></div>
                                 <div class="col-4">
-                                    <user-info
+                                    <user-info-component
                                         :model="{{ $question }}"
                                         :label="'Asked'">
-                                    </user-info>
+                                    </user-info-component>
                                 </div>
                             </div>
                         </div>
