@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'QuestionController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('questions', 'QuestionController')->except('show');
-Route::get('questions/{slug}', 'QuestionController@show')->name('questions.show');
+    Route::get('questions/{slug}', 'QuestionController@show')->name('questions.show');
 Route::resource('questions.answers', 'AnswerController')->except(['index', 'create', 'show']);
 Route::post('answers/{answer}/accept', 'AcceptAnswerController')->name('answers.accept');
 Route::post('questions/{question}/favorites', 'FavoriteController@store')->name('questions.favorite');
