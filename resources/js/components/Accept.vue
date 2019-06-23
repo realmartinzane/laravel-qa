@@ -40,7 +40,7 @@ export default {
     {
         canAccept()
         {
-            return true
+            return this.authorize('accept', this.answer);
         },
         accepted()
         {
