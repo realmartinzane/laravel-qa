@@ -1,9 +1,9 @@
 <answer-component :answer="{{ $answer }}" inline-template>
     <div class="media post">
-        @include ('common._vote',
-        [
-            'model' => $answer
-        ])
+        <vote-component
+            :model="{{ $answer }}"
+            :name="'answer'">
+        </vote-component>
 
         <div class="media-body" >
             <form v-show="editing" @submit.prevent="update">

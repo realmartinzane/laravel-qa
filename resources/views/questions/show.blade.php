@@ -18,10 +18,10 @@
                     <hr>
 
                     <div class="media">
-                        @include('common._vote', 
-                        [
-                            'model' => $question
-                        ])
+                        <vote-component
+                            :model="{{ $question }}"
+                            :name="'question'">
+                        </vote-component>
                         <div class="media-body">
                             {!! $question->body_html !!}
                             <div class="row">
