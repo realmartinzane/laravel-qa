@@ -38,11 +38,10 @@
     </form>
 
     @if($model instanceof App\Question)
-        @include('common._favorite',
-        [
-            'model' => $model
-        ])
-    @elseif($model instanceof App\Question)
+        <favorite-component
+            :question="{{ $model }}">
+        </favorite-component>
+    @elseif($model instanceof App\Answer)
         @include('common._accept',
         [
             'model' => $model
