@@ -40,11 +40,10 @@
             </div>
         </div>
     </div>
-    @include('answers._index', 
-    [
-        'answers' => $question->answers,
-        'answersCount' => $question->answers_count
-    ])
+    <answers-component
+        :answers="{{ $question->answers }}"
+        :count="{{ $question->answers_count }}">
+    </answers-component>
     @include('answers._create')
 </div>
 @endsection
