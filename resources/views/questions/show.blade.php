@@ -43,6 +43,5 @@
     <answers-component
         :question="{{ $question }}">
     </answers-component>
-    @include('answers._create')
 </div>
 @endsection
