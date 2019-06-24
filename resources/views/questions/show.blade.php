@@ -41,8 +41,7 @@
         </div>
     </div>
     <answers-component
-        :answers="{{ $question->answers }}"
-        :count="{{ $question->answers_count }}">
+        :question="{{ $question }}">
     </answers-component>
     @include('answers._create')
 </div>
