@@ -38,8 +38,18 @@
 
 
 <script>
+
+import VoteComponent from './Vote'
+import UserInfoComponent from './UserInfo'
+
 export default {
     props: ['answer'],
+
+    components:
+    {
+        VoteComponent, UserInfoComponent
+    },
+
     data(){return{
         editing: false,
         body: this.answer.body,
